@@ -1,0 +1,2 @@
+# Ignore Mac filesystem indexing
+.DS_Store
