@@ -114,3 +114,58 @@ body {
     margin-left: 1rem;
   }
 }
+
+/* Additional styling for my project cards */
+body { background: #14161c; color: #e7e8ee; }
+.card { background: #1e212a; }
+.card-img-top { 
+	height: 8.5rem;
+	border-bottom: 1px solid #2c303c;
+	background: #1b1e26;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.card-meta {
+	font-family: "IBM Plex Mono", monospace;
+	font-size: 0.68rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #666c7d;
+	display: flex;
+	justify-content: space-between;
+}
+.text-muted-custom { color: #9297a8 !important; }
+.nav-pills .nav-link { color: #9297a8; }
+.nav-pills .nav-link.active { background-color: #e2a54d; color: #1a1406; }
+.badge-tag { 
+	background: rgba(92, 201, 189, 0.12); 
+	color: #5cc9bd; 
+	border: 1px solid rgba(92, 201, 189, 0.3); 
+	font-weight: 400;
+	margin: 1px;
+}
+#tagSearch::placeholder {
+  color: #9297a8;
+  opacity: 1;
+}
+
+
+/* Styles to make main->footer flow naturally */
+html, body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}

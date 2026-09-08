@@ -17,8 +17,8 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 
-	<body class="d-flex h-100 text-center text-bg-dark">
-		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+	<body class="d-flex min-vh-100 text-bg-dark">
+		<div class="cover-container d-flex w-100 min-vh-100 mx-auto flex-column">
   			<header class="mb-auto">
 					<nav class="navbar navbar-dark navbar-expand-md p-0">
 						<div class="container-fluid px-0">
@@ -39,20 +39,213 @@
   			</header>
 
   			<main class="px-3">
-    			<h1>Projects</h1>
+    			<h1 class="text-center">Projects</h1>
     			<p class="lead text-justify">Below is a list of projects that I have completed / am working on. All items are a work in progress that may change at anytime.</p> 
-					<p class="lead">Where projects are not designed to be interacted with through a browser, the link will instead direct to the relvant Github page. However, all projects are stored on my <a class="link-primary" href="https://github.com/stamps9k">Github</a> page and source code is available there</p>
-    			<p class="lead">
-      			<a href="https://webasm-triangle.stampatron.com" target="_blank" class="btn btn-lg btn-light fw-bold my-1">Web Assembly Basic Triangle</a>
-				    <a href="https://model-viewer.stampatron.com" target="_blank" class="btn btn-lg btn-light fw-bold my-1">Web Assembly Model Viewer</a>
-						<a href="https://webgpu-particles.stampatron.com" target="_blank" class="btn btn-lg btn-light fw-bold my-1">WebGPU Particles Renderer</a>
-						<a href="https://hopdrop.stampatron.com" target="_blank" class="btn btn-lg btn-light fw-bold my-1">Hopdrop File Transfer</a>
-    			</p>
+					<p class="lead text-justify">Where projects are not designed to be interacted with through a browser, the link will instead direct to the relvant Github page. However, all projects are stored on my <a class="link-primary" href="https://github.com/stamps9k">Github</a> page and source code is available there</p>
+					
+						<input type="text" class="form-control bg-transparent border-secondary text-reset mb-3" id="tagSearch"
+							placeholder="Filter by tag… (e.g. rust, audio, webrtc)" style="max-width: 24rem;">
+
+						<ul class="nav nav-pills mb-4 gap-2" id="filterNav">
+							<li class="nav-item"><button class="nav-link active" data-filter="all">All</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="graphics">Graphics</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="rust">Rust</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="audio">Audio</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="asm">Assembly</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="security">Security</button></li>
+							<li class="nav-item"><button class="nav-link" data-filter="tools">Tools</button></li>
+						</ul>
+
+					<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3" id="grid">
+						<div class="col project-card" data-tags="graphics games assembly homebrew">
+							<a href="#" class="card border border-warning h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-light">
+									<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+										<rect width="200" height="120" fill="#1b1e26"/>
+										<g fill="#e2a54d">
+											<rect x="30" y="30" width="10" height="10"/>
+											<rect x="30" y="80" width="10" height="10"/>
+											<rect x="160" y="30" width="10" height="10"/>
+											<rect x="160" y="80" width="10" height="10"/>
+										</g>
+										<g fill="#5cc9bd">
+											<rect x="70" y="50" width="10" height="10"/>
+											<rect x="90" y="40" width="10" height="10"/>
+											<rect x="110" y="60" width="10" height="10"/>
+											<rect x="130" y="45" width="10" height="10"/>
+										</g>
+									</svg>
+								</div>
+								<div class="card-body border-light">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>68000 Assembly</span><span>2026</span>
+									</div>
+									<h5 class="card-title">Homebrew Console</h5>
+									<p class="card-text text-muted-custom small">A demostration of my homebrew ROM development.</p>
+									<span class="badge badge-tag rounded-pill">graphics</span>
+									<span class="badge badge-tag rounded-pill">games</span>
+									<span class="badge badge-tag rounded-pill">assembly</span>
+								</div>
+								</a>
+						</div>
+						
+						<div class="col project-card" data-tags="tools files webrtc">
+							<a href="#" class="card border border-warning h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-light">
+									<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+										<rect width="200" height="120" fill="#1b1e26"/>
+										<circle cx="55" cy="60" r="6" fill="none" stroke="#e2a54d" stroke-width="1.5"/>
+										<circle cx="145" cy="35" r="6" fill="none" stroke="#5cc9bd" stroke-width="1.5"/>
+										<circle cx="145" cy="85" r="6" fill="none" stroke="#5cc9bd" stroke-width="1.5"/>
+										<line x1="61" y1="60" x2="139" y2="37" stroke="#4a5164" stroke-width="1.2" stroke-dasharray="3 3"/>
+										<line x1="61" y1="60" x2="139" y2="83" stroke="#4a5164" stroke-width="1.2" stroke-dasharray="3 3"/>
+									</svg>
+								</div>
+								<div class="card-body">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>WebRTC</span><span>2026</span>
+									</div>
+									<h5 class="card-title">Hopdrop File Transfer</h5>
+									<p class="card-text text-muted-custom small">A small web application for transfer files between user's computers.</p>
+									<span class="badge badge-tag rounded-pill">files</span>
+									<span class="badge badge-tag rounded-pill">webrtc</span>
+									<span class="badge badge-tag rounded-pill">tools</span>
+								</div>
+								</a>
+						</div>
+
+						<div class="col project-card" data-tags="graphics rust webgpu">
+							<a href="#" class="card border border-warning h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-light">
+									<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+										<rect width="200" height="120" fill="#1b1e26"/>
+										<circle cx="40" cy="80" r="2.4" fill="#e2a54d"/>
+										<circle cx="70" cy="55" r="1.6" fill="#5cc9bd"/>
+										<circle cx="95" cy="90" r="2" fill="#e2a54d"/>
+										<circle cx="120" cy="40" r="1.8" fill="#e2a54d"/>
+										<circle cx="140" cy="70" r="2.2" fill="#5cc9bd"/>
+										<circle cx="160" cy="95" r="1.5" fill="#e2a54d"/>
+										<circle cx="55" cy="30" r="1.4" fill="#5cc9bd"/>
+										<circle cx="175" cy="45" r="2" fill="#e2a54d"/>
+										<circle cx="20" cy="45" r="1.6" fill="#5cc9bd"/>
+										<circle cx="105" cy="20" r="1.5" fill="#e2a54d"/>
+									</svg>
+								</div>
+								<div class="card-body">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>WGSL / WebGPU</span><span>2026</span>
+									</div>
+									<h5 class="card-title">Particle Playground</h5>
+									<p class="card-text text-muted-custom small">GPU-driven particle systems in the browser — compute shaders, curl noise, and a live parameter panel.</p>
+									<span class="badge badge-tag rounded-pill">graphics</span>
+									<span class="badge badge-tag rounded-pill">rust</span>
+									<span class="badge badge-tag rounded-pill">webgpu</span>
+								</div>
+								</a>
+						</div>
+
+						<div class="col project-card" data-tags="graphics rust webasm webgl">
+							<a href="https://model-viewer.stampatron.com" class="card border border-warning h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-light">
+									<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+										<rect width="200" height="120" fill="#1b1e26"/>
+										<g fill="none" stroke="#e2a54d" stroke-width="1.2">
+											<rect x="70" y="35" width="60" height="50"/>
+											<rect x="55" y="50" width="60" height="50"/>
+										</g>
+										<line x1="70" y1="35" x2="55" y2="50" stroke="#5cc9bd" stroke-width="1"/>
+										<line x1="130" y1="35" x2="115" y2="50" stroke="#5cc9bd" stroke-width="1"/>
+										<line x1="70" y1="85" x2="55" y2="100" stroke="#5cc9bd" stroke-width="1"/>
+										<line x1="130" y1="85" x2="115" y2="100" stroke="#5cc9bd" stroke-width="1"/>
+									</svg>
+								</div>
+								<div class="card-body">
+									<div class=" card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>Rust / WASM</span><span>2025</span>
+									</div>
+									<h5 class="card-title">3D Model Viewer</h5>
+									<p class="card-text text-muted-custom small">A complete 3D model viewer with the option to upload and view your own models.</p>
+									<span class="badge badge-tag rounded-pill">graphics</span>
+									<span class="badge badge-tag rounded-pill">rust</span>
+									<span class="badge badge-tag rounded-pill">webasm</span>
+									<span class="badge badge-tag rounded-pill">webgl</span>
+								</div>
+							</a>
+						</div>
+
+						<div class="col project-card" data-tags="graphics rust webasm webgl">
+							<a href="https://webasm-triangle.stampatron.com" class="card border border-warning h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-light">
+									<svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet">
+										<rect width="200" height="120" fill="#1b1e26"/>
+										<polygon points="100,25 150,95 50,95" fill="none" stroke="#e2a54d" stroke-width="1.4"/>
+										<polygon points="100,25 125,60 75,60" fill="none" stroke="#5cc9bd" stroke-width="1.2"/>
+										<line x1="75" y1="60" x2="50" y2="95" stroke="#5cc9bd" stroke-width="1.2"/>
+										<line x1="125" y1="60" x2="150" y2="95" stroke="#5cc9bd" stroke-width="1.2"/>
+										<line x1="75" y1="60" x2="125" y2="60" stroke="#5cc9bd" stroke-width="1.2"/>
+									</svg>
+								</div>
+								<div class="card-body">
+									<div class="d-flex justify-content-between small text-muted-custom mb-1">
+										<span>Rust / WASM</span><span>2024</span>
+									</div>
+									<h5 class="card-title">Webasm Triangle</h5>
+									<p class="card-text text-muted-custom small">A my first triangle demo project. Learning the basics about webasm.</p>
+									<span class="badge badge-tag rounded-pill">graphics</span>
+									<span class="badge badge-tag rounded-pill">rust</span>
+									<span class="badge badge-tag rounded-pill">webasm</span>
+									<span class="badge badge-tag rounded-pill">webgl</span>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<p class="text-center text-muted-custom small mt-4 d-none" id="emptyState">Nothing tagged that yet.</p>
   			</main>
 
-  			<footer class="mt-auto text-white-50">
-    			<p>Stampatron site created using <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a> sample code, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-  			</footer>
+  			<footer class="mt-3 text-white-50">
+					<p>Stampatron site created using <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a> sample code, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+				</footer>
 		</div>
-    </body>
+
+		<script>
+			// Filtering: not a Bootstrap component, just toggling Bootstrap's own d-none utility.
+			// Pill click and search box both feed the same applyFilters() so they combine (AND, not either/or).
+			var filterNav = document.getElementById('filterNav');
+			var tagSearch = document.getElementById('tagSearch');
+			var cards = document.querySelectorAll('.project-card');
+			var emptyState = document.getElementById('emptyState');
+			var activeFilter = 'all';
+
+			function applyFilters() {
+				var query = tagSearch.value.trim().toLowerCase();
+				var visibleCount = 0;
+
+				cards.forEach(function (card) {
+					var tags = card.getAttribute('data-tags').split(' ');
+					var matchesPill = activeFilter === 'all' || tags.includes(activeFilter);
+					var matchesSearch = query === '' || tags.some(function (t) { return t.includes(query); });
+					var match = matchesPill && matchesSearch;
+					card.classList.toggle('d-none', !match);
+					if (match) visibleCount++;
+				});
+
+				emptyState.classList.toggle('d-none', visibleCount > 0);
+			}
+
+			filterNav.addEventListener('click', function (e) {
+				var btn = e.target.closest('[data-filter]');
+				if (!btn) return;
+
+				filterNav.querySelectorAll('.nav-link').forEach(function (link) {
+					link.classList.remove('active');
+				});
+				btn.classList.add('active');
+				activeFilter = btn.getAttribute('data-filter');
+				applyFilters();
+			});
+
+			tagSearch.addEventListener('input', applyFilters);
+		</script>
+	</body>
 </html>
