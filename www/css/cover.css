@@ -175,3 +175,25 @@ main {
 footer {
   flex-shrink: 0;
 }
+
+/* --- brand hooks only: everything else below is stock Bootstrap 5.3 --- */
+:root{
+	--bs-body-font-family: 'Inter', system-ui, sans-serif;
+	--bs-font-monospace: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+	--accent: #e2a54d;   /* orange — matches the card/filter accent on projects.html */
+	--accent-2: #5cc9bd; /* teal — matches the tag badges on projects.html */
+}
+.text-accent{ color: var(--accent) !important; }
+.text-accent-2{ color: var(--accent-2) !important; }
+.border-accent-subtle{ border-color: rgba(226,165,77,.35) !important; }
+.bg-accent-2-subtle{ background-color: rgba(92,201,189,.15) !important; }
+.dot-accent{ width:.55rem; height:.55rem; border-radius:2px; background:var(--accent); box-shadow:0 0 8px var(--accent); display:inline-block; }
+.icon-badge{ width:40px; height:40px; }
+.hover-card{ transition:border-color .15s ease, transform .15s ease; }
+.hover-card:hover{ border-color:var(--accent) !important; transform:translateY(-2px); }
+.btn-accent{
+	--bs-btn-color:#1a1406; --bs-btn-bg:var(--accent); --bs-btn-border-color:var(--accent);
+	--bs-btn-hover-color:#1a1406; --bs-btn-hover-bg:#eab568; --bs-btn-hover-border-color:#eab568;
+	--bs-btn-active-color:#1a1406; --bs-btn-active-bg:#d1943f; --bs-btn-active-border-color:#d1943f;
+	--bs-btn-focus-shadow-rgb:226,165,77;
+}
