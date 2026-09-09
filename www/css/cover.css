@@ -197,3 +197,20 @@ footer {
 	--bs-btn-active-color:#1a1406; --bs-btn-active-bg:#d1943f; --bs-btn-active-border-color:#d1943f;
 	--bs-btn-focus-shadow-rgb:226,165,77;
 }
+
+/* Projects hero blurb */
+.hero-eyebrow {
+  font-family: var(--bs-font-monospace);
+  letter-spacing: .05em;
+}
+
+.link-accent {
+  color: var(--accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(92, 201, 189, .4);
+}
+
+.link-accent:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
