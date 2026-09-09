@@ -1,0 +1,30 @@
+.github-feed-list {
+  max-height: 14rem; /* tune to roughly match the blurb's rendered height */
+  overflow: hidden;
+}
+
+.github-feed-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .5rem 0;
+}
+
+.github-feed-list li + li {
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.github-feed-list .repo-name {
+  font-family: var(--bs-font-monospace);
+  font-weight: 600;
+  color: var(--accent-2);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.github-feed-list .repo-name:hover {
+  color: var(--accent);
+}
