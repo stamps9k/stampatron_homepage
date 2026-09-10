@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
 	</head>
 
-	<body class="d-flex h-100 text-center text-bg-dark">
+	<body class="d-flex min-vh-100 text-bg-dark">
 		<nav class="navbar navbar-expand-md sticky-top border-bottom bg-body">
 			<div class="container">
 				<a class="navbar-brand fw-bold font-monospace d-flex align-items-center gap-2" href="index.html">
@@ -32,22 +32,245 @@
 				</button>
 				<div class="collapse navbar-collapse" id="mainNav">
 					<ul class="navbar-nav ms-auto mb-2 mb-md-0 font-monospace">
-						<li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-						<li class="nav-item"><a class="nav-link active" href="#top">CV</a></li>
+						<li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">CV</a></li>
 						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<main id="top" class="p-3">
-			<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-				<h1>CV</h1>
-				<p class="lead">Below is a brief overview of my career to date. You can also use the button to receive a PDF copy.</p>
-				<p class="lead"><a href="docs/cv.pdf" target="_blank" class="btn btn-lg btn-light fw-bold">PDF Version</a></p>
-				<p class="lead">James Stamp</p>
+		<main id="top">
+			<div class="container py-5">
+				<div class="row g-5 align-items-start">
+
+					<div class="col-lg-4 order-lg-2 d-none d-lg-block">
+						<div class="card border-accent-subtle h-100">
+							<div class="card-body">
+								<div class="d-flex align-items-center gap-2 mb-3">
+									<span class="dot-accent" aria-hidden="true"></span>
+									<span class="card-meta mb-0">Quick Facts</span>
+								</div>
+								<dl class="row small mb-4 gy-2">
+									<dt class="col-5 text-muted-custom fw-normal">Location</dt>
+									<dd class="col-7 mb-0">Fukuoka, Japan</dd>
+									<dt class="col-5 text-muted-custom fw-normal">Languages</dt>
+									<dd class="col-7 mb-0">English (native), Japanese (JLPT N2)</dd>
+									<dt class="col-5 text-muted-custom fw-normal">Focus</dt>
+									<dd class="col-7 mb-0">Education · graphics programming</dd>
+								</dl>
+								<a href="docs/cv.pdf" target="_blank" class="btn btn-accent fw-bold font-monospace w-100 mb-2">Download PDF ↓</a>
+								<a href="mailto:stampatron1@gmail.com" class="btn btn-outline-light font-monospace w-100">Email me</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-8 order-lg-1">
+						<div class="d-flex align-items-center gap-2 mb-2">
+							<span class="dot-accent" aria-hidden="true"></span>
+							<span class="hero-eyebrow small text-uppercase text-muted-custom">Curriculum Vitae</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<!-- Swap the src below for your real photo, e.g. img/headshot.jpg — same file, same spot. -->
+							<img src="img/headshot.jpg" alt="Headshot of James Stamp"
+								class="rounded-circle border border-accent-subtle flex-shrink-0"
+								style="width:72px;height:72px;object-fit:cover;background:#1b1e26;"
+								onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 72 72%22%3E%3Crect width=%2272%22 height=%2272%22 fill=%22%231b1e26%22/%3E%3Ccircle cx=%2236%22 cy=%2228%22 r=%2211%22 fill=%22%232c303c%22/%3E%3Cpath d=%22M13 63c4-14 16-22 23-22s19 8 23 22%22 fill=%22%232c303c%22/%3E%3C/svg%3E';">
+							<h1 class="mb-0">James Stamp</h1>
+						</div>
+						<p class="lead text-body-secondary" style="max-width:60ch;">
+							First-class Computer Science graduate who spent a decade in underwriting and enterprise
+							software before moving to Fukuoka to study Japanese full-time. Now a Native Speaker English
+							teacher in local junior high schools, and still building things on the side — mostly
+							graphics engines and retro-hardware demos —
+							<a class="link-accent" href="projects.html">see the code behind that on the Projects page</a>.
+						</p>
+					</div>
+				</div>
 			</div>
+
+			<section class="border-top">
+				<div class="container py-5">
+					<div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-4">
+						<h2 class="h5 font-monospace mb-0">Experience</h2>
+						<p class="text-body-secondary small mb-0">Most recent first.</p>
+					</div>
+
+					<div class="d-flex flex-column gap-3">
+
+						<div class="card border-accent-subtle hover-card">
+							<div class="card-body">
+								<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<span>OWLS Co., Ltd. — Fukuoka, Japan</span><span>20XX — Present</span>
+								</div>
+								<h3 class="h6 card-title mb-1">Native Speaker (NS) English Teacher</h3>
+								<p class="card-text text-body-secondary small mb-2">
+									Placed at junior high schools in the Fukuoka city area. Plans and delivers English lessons
+									alongside Japanese Teachers of English, coaches students for speech contests, and liaises
+									with school administrators on scheduling and events.
+								</p>
+								<span class="badge badge-tag rounded-pill">education</span>
+								<span class="badge badge-tag rounded-pill">english</span>
+								<span class="badge badge-tag rounded-pill">speech coaching</span>
+							</div>
+						</div>
+
+						<div class="card border-accent-subtle hover-card">
+							<div class="card-body">
+								<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<span>Bally's Corporation — Isle of Man</span><span>2021 — 2024</span>
+								</div>
+								<h3 class="h6 card-title mb-1">Banking &amp; PSP Exec</h3>
+								<p class="card-text text-body-secondary small mb-2">
+									Reconciled PSP transactions, settlements, and fees across multiple payment providers,
+									each with its own contract and data format. Migrated spreadsheet-based reconciliations
+									onto Power BI and built models to compare PSP data against booked transactions.
+								</p>
+								<span class="badge badge-tag rounded-pill">reconciliation</span>
+								<span class="badge badge-tag rounded-pill">power bi</span>
+								<span class="badge badge-tag rounded-pill">data analysis</span>
+							</div>
+						</div>
+
+						<div class="card border-accent-subtle hover-card">
+							<div class="card-body">
+								<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<span>Private Enterprise — Isle of Man</span><span>2020 — 2021</span>
+								</div>
+								<h3 class="h6 card-title mb-1">Language Tutor</h3>
+								<p class="card-text text-body-secondary small mb-2">
+									Built and ran personalised curricula around individual students' goals, with weekly
+									face-to-face tuition and homework review.
+								</p>
+								<span class="badge badge-tag rounded-pill">tutoring</span>
+								<span class="badge badge-tag rounded-pill">curriculum design</span>
+							</div>
+						</div>
+
+						<div class="card border-accent-subtle hover-card">
+							<div class="card-body">
+								<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<span>Isle of Man Post Office</span><span>2014 — 2018</span>
+								</div>
+								<h3 class="h6 card-title mb-1">Systems Developer</h3>
+								<p class="card-text text-body-secondary small mb-2">
+									Built and maintained front- and back-end systems: PHP/CakePHP on the frontend, Java on
+									the backend, communicating via RabbitMQ and deployed on Linux infrastructure.
+								</p>
+								<span class="badge badge-tag rounded-pill">php</span>
+								<span class="badge badge-tag rounded-pill">java</span>
+								<span class="badge badge-tag rounded-pill">rabbitmq</span>
+								<span class="badge badge-tag rounded-pill">linux</span>
+							</div>
+						</div>
+
+						<div class="card border-accent-subtle hover-card">
+							<div class="card-body">
+								<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<span>Aon Insurance Managers (IOM) Limited</span><span>2005 — 2011</span>
+								</div>
+								<h3 class="h6 card-title mb-1">Assistant Underwriter</h3>
+								<p class="card-text text-body-secondary small mb-2">
+									Handled claims review and policy documentation for the firm's largest account, working
+									closely with the client's risk financing team, including a secondment to their London
+									head office.
+								</p>
+								<span class="badge badge-tag rounded-pill">underwriting</span>
+								<span class="badge badge-tag rounded-pill">claims</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="border-top">
+				<div class="container py-5">
+					<h2 class="h5 font-monospace mb-4">Education</h2>
+					<div class="row row-cols-1 row-cols-md-2 g-3">
+						<div class="col">
+							<div class="card border-accent-subtle hover-card h-100">
+								<div class="card-body">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>University of Chester</span><span>2011 — 2014</span>
+									</div>
+									<h3 class="h6 card-title mb-0">BSc (Hons) Computer Science — First Class</h3>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="card border-accent-subtle hover-card h-100">
+								<div class="card-body">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
+										<span>Genki Japanese &amp; Culture School, Fukuoka</span><span>2018 — 2020, 2024</span>
+									</div>
+									<h3 class="h6 card-title mb-0">JLPT N2</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="border-top">
+				<div class="container py-5">
+					<h2 class="h5 font-monospace mb-4">Skills</h2>
+					<div class="row g-4">
+						<div class="col-md-6 col-lg-3">
+							<h3 class="h6 text-accent-2 font-monospace text-uppercase small mb-2" style="letter-spacing:.08em;">Teaching</h3>
+							<div>
+								<span class="badge badge-tag rounded-pill">lesson planning</span>
+								<span class="badge badge-tag rounded-pill">classroom management</span>
+								<span class="badge badge-tag rounded-pill">speech coaching</span>
+								<span class="badge badge-tag rounded-pill">pta liaison</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-3">
+							<h3 class="h6 text-accent-2 font-monospace text-uppercase small mb-2" style="letter-spacing:.08em;">Programming</h3>
+							<div>
+								<span class="badge badge-tag rounded-pill">rust</span>
+								<span class="badge badge-tag rounded-pill">python</span>
+								<span class="badge badge-tag rounded-pill">java</span>
+								<span class="badge badge-tag rounded-pill">c / c++</span>
+								<span class="badge badge-tag rounded-pill">php</span>
+								<span class="badge badge-tag rounded-pill">typescript</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-3">
+							<h3 class="h6 text-accent-2 font-monospace text-uppercase small mb-2" style="letter-spacing:.08em;">Graphics &amp; Systems</h3>
+							<div>
+								<span class="badge badge-tag rounded-pill">wasm</span>
+								<span class="badge badge-tag rounded-pill">webgpu / wgsl</span>
+								<span class="badge badge-tag rounded-pill">68000 assembly</span>
+								<span class="badge badge-tag rounded-pill">webgl</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-3">
+							<h3 class="h6 text-accent-2 font-monospace text-uppercase small mb-2" style="letter-spacing:.08em;">Tools &amp; Infra</h3>
+							<div>
+								<span class="badge badge-tag rounded-pill">react</span>
+								<span class="badge badge-tag rounded-pill">docker</span>
+								<span class="badge badge-tag rounded-pill">nginx</span>
+								<span class="badge badge-tag rounded-pill">git</span>
+								<span class="badge badge-tag rounded-pill">power bi</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="border-top">
+				<div class="container py-5">
+					<h2 class="h5 font-monospace mb-4">Beyond Work</h2>
+					<div>
+						<span class="badge badge-tag rounded-pill">travel</span>
+						<span class="badge badge-tag rounded-pill">japanese language exchange</span>
+						<span class="badge badge-tag rounded-pill">arcade cabinet building</span>
+						<span class="badge badge-tag rounded-pill">brazilian jiu-jitsu</span>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<footer class="border-top py-4">
