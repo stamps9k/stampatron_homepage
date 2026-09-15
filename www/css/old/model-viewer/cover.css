@@ -1,0 +1,262 @@
+/*
+ * Globals
+ */
+
+  /* Extra items extracted from the inline code in the online example */
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  .bd-mode-toggle {
+    z-index: 1500;
+  }
+
+  .bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+  } 
+ .btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+/* Custom default button */
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+body {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 50em;
+}
+
+
+/*
+ * Header
+ */
+.nav-masthead .nav-link {
+  color: rgba(255, 255, 255, .5) !important;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/*
+ * Site redesign theme — dark, amber-accent, monospace
+ * (matches the aesthetic used across the other stampatron.com revamp work)
+ */
+:root {
+  /* --bg-deep / --ink match the exact values the live site's own
+     cover.css sets on body (checked directly against stampatron.com);
+     the rest are this app's own chrome tones layered on top of that,
+     using the site's real --bs-* dark theme (data-bs-theme="dark" on
+     <html>) instead of a hand-rolled variable remap. */
+  --surface-raised: rgb(26, 30, 39);
+  --surface-card: #1f2430;
+  --bg-deep: rgb(20, 22, 28);
+  --ink: rgb(231, 232, 238);
+  --ink-muted: rgba(231, 232, 238, 0.6);
+  --amber: #e2a54d;
+  --amber-dim: rgba(226, 165, 77, 0.16);
+  --border-soft: rgba(73, 80, 87, 0.5);
+
+  /* live site's own font tokens (Inter body copy, JetBrains Mono for
+     brand/nav bits via the .font-monospace utility) — Bootstrap's base
+     `body` rule already reads --bs-body-font-family itself. */
+  --bs-body-font-family: 'Inter', system-ui, sans-serif;
+  --bs-font-monospace: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--ink);
+}
+
+a { color: var(--ink); }
+a:hover { color: var(--amber); }
+
+.dot-accent {
+  display: inline-block; width: 10px; height: 10px; border-radius: 2px;
+  background: var(--amber); box-shadow: 0 0 8px var(--amber); flex-shrink: 0;
+}
+
+.navbar { border-bottom-color: #495057 !important; }
+.navbar .nav-link { font-size: 0.85rem; letter-spacing: 0.04em; }
+.navbar .nav-link.active { color: var(--amber) !important; }
+.navbar-brand .text-body { font-weight: 700; letter-spacing: 0.04em; }
+
+footer.border-top { border-top-color: #495057 !important; }
+.social-btn {
+  width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-soft);
+  display: flex; align-items: center; justify-content: center; color: var(--ink-muted);
+}
+.social-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+.page-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; }
+.sublinks a { font-size: 0.8rem; letter-spacing: 0.05em; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+.sublinks a:hover { color: var(--amber); }
+
+/*
+ * Viewer toolbar — model / shader selects, upload trigger, tool chips
+ */
+.viewport-card {
+  background: var(--surface-card); border: 1px solid var(--border-soft);
+  border-radius: 6px; overflow: hidden;
+}
+.viewer-toolbar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 10px 14px; border-bottom: 1px solid var(--border-soft); background: var(--surface-raised);
+}
+.select-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.select-group { display: flex; align-items: center; gap: 6px; }
+.select-group label { font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-muted); }
+.select-group select {
+  background: var(--bg-deep); color: var(--ink); border: 1px solid var(--border-soft);
+  border-radius: 4px; padding: 6px 10px; font-size: 0.8rem; font-family: inherit;
+}
+.select-group select:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+
+.toolbar-sep { width: 1px; align-self: stretch; background: var(--border-soft); }
+
+.upload-trigger-wrap { flex: 1; display: flex; justify-content: center; }
+.upload-trigger {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--amber-dim); border: 1px solid var(--amber); border-radius: 4px;
+  padding: 7px 14px; font-size: 0.8rem; color: var(--amber); font-weight: 500;
+}
+.upload-trigger:hover { background: rgba(226, 165, 77, 0.24); color: var(--amber); }
+.upload-trigger svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.toolbar-icon-btns { display: flex; gap: 8px; flex-shrink: 0; }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border-soft);
+  background: transparent; color: var(--ink-muted); display: flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover { border-color: var(--amber); color: var(--amber); }
+.icon-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.tool-btns { display: flex; gap: 8px; margin-left: auto; }
+.tool-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 32px; border-radius: 16px; border: 1px solid var(--border-soft);
+  background: transparent; color: var(--ink-muted); font-size: 0.72rem; padding: 0 10px;
+}
+.tool-chip:hover:not(.soon) { border-color: var(--amber); color: var(--amber); }
+.tool-chip.soon { opacity: 0.55; cursor: not-allowed; }
+.tool-chip svg { width: 14px; height: 14px; }
+
+.canvas-stage {
+  background: var(--bg-deep); display: flex; align-items: center; justify-content: center; padding: 24px;
+  background-image:
+    linear-gradient(var(--border-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+  background-size: 32px 32px; background-position: center;
+}
+#glCanvas { background: var(--bg-deep); border-color: var(--border-soft) !important; max-width: 100%; height: auto; }
+
+.camera-controls {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+  padding: 10px 14px; border-top: 1px solid var(--border-soft); background: var(--surface-raised);
+  font-size: 0.75rem; color: var(--ink-muted);
+}
+.camera-controls .toggle-chip { display: flex; align-items: center; gap: 6px; }
+.camera-controls input[type=checkbox] { accent-color: var(--amber); }
+#fps { font-family: inherit; width: 5.5em; flex-shrink: 0; overflow: hidden; white-space: nowrap; text-overflow: clip; }
+.controls-sep { width: 1px; align-self: stretch; background: var(--border-soft); flex-shrink: 0; }
+
+/*
+ * Upload modal
+ */
+.upload-modal .modal-content { background: var(--surface-card); border: 1px solid var(--border-soft); color: var(--ink); }
+.upload-modal .modal-header { border-bottom-color: var(--border-soft); }
+.upload-modal .modal-title { font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 600; }
+.dropzone { border: 1.5px dashed var(--border-soft); border-radius: 6px; padding: 24px 16px; text-align: center; }
+.dropzone input[type=file] { background: var(--bg-deep); color: var(--ink); border: 1px solid var(--border-soft); }
+.dropzone .sub-text { font-size: 0.72rem; color: var(--ink-muted); margin-top: 8px; }
+.upload-selection-label { font-size: 0.78rem; color: var(--amber); margin-top: 10px; }
+.upload-go-btn {
+  margin-top: 14px; background: var(--amber); border-color: var(--amber); color: #12151c;
+  font-weight: 600; letter-spacing: 0.03em; padding: 7px 20px;
+}
+.upload-go-btn:hover:not(:disabled) { background: #eab868; border-color: #eab868; color: #12151c; }
+.upload-go-btn:disabled { background: transparent; border-color: var(--border-soft); color: var(--ink-muted); opacity: 0.6; }
+
+/*
+ * Render / Control Options accordion (unchanged behavior, restyled)
+ */
+#accordion .card-header .btn-primary {
+  background: transparent; border: 1px solid var(--border-soft); color: var(--ink);
+  font-size: 0.8rem; letter-spacing: 0.03em;
+}
+#accordion .card-header .btn-primary:hover { border-color: var(--amber); color: var(--amber); }
+#accordion .card-body { background: var(--surface-card); border-color: var(--border-soft) !important; }
+
+/*
+ * Model Info / Materials / Lighting sidebar
+ */
+.stage-row { display: flex; align-items: flex-start; gap: 20px; }
+.stage-row .viewport-card { flex: 1; min-width: 0; }
+
+.info-sidebar { width: 280px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; }
+.info-card {
+  background: var(--surface-card); border: 1px solid var(--border-soft);
+  border-radius: 6px; padding: 14px 16px;
+}
+.info-card h3 {
+  margin: 0 0 10px 0; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--ink-muted);
+  font-weight: 600;
+}
+.info-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.8rem; }
+.info-row + .info-row { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.info-row .label { color: var(--ink-muted); }
+.info-row .value { font-weight: 500; }
+
+.material-row { display: flex; align-items: center; gap: 9px; padding: 6px 0; font-size: 0.8rem; }
+.material-row + .material-row { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.material-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--amber); opacity: 0.7; }
+
+.light-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; font-size: 0.8rem; }
+.light-row + .light-row { border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.pill { font-size: 0.62rem; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; }
+.pill.on { background: var(--amber-dim); color: var(--amber); }
+.pill.off { background: rgba(255, 255, 255, 0.05); color: var(--ink-muted); }
+
+@media (max-width: 900px) {
+  .stage-row { flex-direction: column; }
+  .info-sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .info-sidebar .info-card { flex: 1 1 220px; }
+}
