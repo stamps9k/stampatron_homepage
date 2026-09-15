@@ -1,0 +1,80 @@
+/*
+ * Globals
+ */
+
+/* Extra Personal Changes */
+h4 {
+	text-decoration: underline;
+}
+
+  /* Extra items extracted from the inline code in the online example */
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  .bd-mode-toggle {
+    z-index: 1500;
+  }
+
+  .bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+  } 
+ .btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+/* Custom default button */
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+/* --- brand hooks: kept in sync with the tokens on stampatron.com/css/cover.css --- */
+:root{
+	--bs-body-font-family: 'Inter', system-ui, sans-serif;
+	--bs-font-monospace: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+	--accent: #e2a54d;   /* orange */
+	--accent-2: #5cc9bd; /* teal */
+}
+
+body { background: #14161c; color: #e7e8ee; }
+
+.text-accent{ color: var(--accent) !important; }
+.text-accent-2{ color: var(--accent-2) !important; }
+.dot-accent{ width:.55rem; height:.55rem; border-radius:2px; background:var(--accent); box-shadow:0 0 8px var(--accent); display:inline-block; }
+
+.hero-eyebrow {
+  font-family: var(--bs-font-monospace);
+  letter-spacing: .05em;
+}
+
+.link-accent {
+  color: var(--accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(92, 201, 189, .4);
+}
+
+.link-accent:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* canvas ground: matches the cube demo's card-body canvas on stampatron.com */
+canvas.render-card {
+  background: #0b0c10;
+}
