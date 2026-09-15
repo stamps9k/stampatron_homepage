@@ -1,0 +1,4 @@
+/* canvas ground: matches the cube demo's card-body canvas on stampatron.com */
+canvas.render-card {
+  background: #0b0c10;
+}

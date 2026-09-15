@@ -1,0 +1,100 @@
+/*
+ * Globals
+ */
+
+/* Custom text for things that need to pop against the dark background */
+.text-terminal {
+  color: #0f0;
+}
+
+/* Custom Special size for the qr-vode svg image */
+#qr-code svg {
+  width: 200px;
+  height: 200px;
+}
+
+/* Custom special styling for the webapp logs */
+#log {
+  white-space: pre-wrap;
+  background: #111;
+  padding: 1rem;
+  height: 45vh;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom underline for heading 6 */
+h6 {
+  text-decoration: underline;
+}
+
+/*
+ * Base structure
+ */
+/*
+ * Header
+ */
+.border-dashed {
+  border-style: dashed !important;
+}
+#dropzone {
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+#dropzone:hover,
+#dropzone:focus-visible {
+  border-color: var(--amber) !important;
+}
+/* Gives the QR/join-link wrapper its own block formatting context so its
+   child elements' top margins don't collapse through it - otherwise the
+   open/close height animation in room_ui.mts measures a few px short. */
+#qr-details-content {
+  display: flow-root;
+}
+
+/* Flattens Bootstrap's boxed nav-tabs into the mockup's plain tab strip -
+   monospace labels, faint when inactive, an accent-colored underline
+   (rather than a bordered "folder tab" look) when active. Overrides via
+   #hopdrop-tabs's ID specificity rather than !important, so it still wins
+   over .nav-tabs .nav-link's own hover/active rules. */
+#hopdrop-tabs .nav-link {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.625rem 1rem;
+  font-family: var(--bs-font-monospace);
+  font-size: 0.8125rem;
+  color: var(--bs-secondary-color);
+  background: transparent;
+}
+#hopdrop-tabs .nav-link:hover,
+#hopdrop-tabs .nav-link:focus {
+  border-color: transparent;
+  color: var(--bs-body-color);
+}
+#hopdrop-tabs .nav-link.active {
+  background: transparent;
+  color: var(--bs-body-color);
+  font-weight: 700;
+  border-bottom-color: var(--amber);
+}
+
+/* Cards get a slightly lighter surface than the page background (matches
+   the main site's .card convention) - this is what makes bg-body read as
+   an actual darker inlay inside a card (e.g. the Received files list)
+   instead of blending in at the same shade as the card around it. */
+.card {
+  background: var(--surface-card);
+}
+
+/* The page background color (var(--bg-deep), set on body via base.css
+   rather than via Bootstrap's --bs-body-bg variable, which is never
+   overridden and stays close to .card's own var(--surface-card)) - bg-body
+   reads that unrelated variable, so it renders too close to a card's own
+   background to read as an inlay. Used for surfaces (like the Received
+   files list) that should nearly disappear into the page itself. */
+.bg-page {
+  background-color: var(--bg-deep) !important;
+}

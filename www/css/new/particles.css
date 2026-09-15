@@ -1,0 +1,304 @@
+/*
+ * Component-specific styling for the particles demo. Shared page chrome
+ * (fonts, colors, body vignette, nav) comes from base.css; this file only
+ * covers what's unique to this page's UI.
+ */
+
+.particle-canvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
+  aspect-ratio: 736 / 480;
+  background-color: var(--bg-deep);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Let the canvas fill the screen on its own terms in fullscreen, rather than
+   staying locked to the 736:480 aspect ratio (or the 80vh cap above). */
+.particle-canvas:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+/*
+ * Header
+ * The navbar is a full-width sibling of .cover-container (see index.html),
+ * not nested inside it, so it spans the whole viewport edge to edge while
+ * its own .container keeps the brand/links aligned with the page content.
+ */
+
+/* Menu overlays the page on small screens instead of pushing content down */
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--bs-border-radius);
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.5);
+  }
+}
+
+.card {
+  --bs-card-bg: var(--surface-card);
+  --bs-card-border-color: var(--border-soft);
+  text-align: left;
+}
+.card .btn-group .btn {
+  border-radius: 0;
+}
+.card .btn-group {
+  border-top: 1px solid var(--border-soft);
+}
+.hud b {
+  color: var(--teal);
+  font-weight: 600;
+}
+.hud .hud-accent {
+  color: var(--amber);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*
+ * Page heading
+ */
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * Simulation parameters panel (ModelForm.tsx) — an always-visible card, no
+ * longer a collapse/accordion.
+ */
+.card-header {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Compact parameter grid.
+   ShaderSetRow renders one .row per field (Shader) and ShaderConfigRows
+   renders one more per config value (e.g. for Boids: max-particles,
+   perception-radius, seperation-radius, seperation-weight,
+   alignment-weight, cohesion-weight, max-speed, max-force …). Every one of
+   those field rows — and only those — carries the exact Bootstrap utility
+   combination "ms-auto text-start py-1 row" (submitRow lacks text-start),
+   so that combination is used below as a selector to flex-wrap them into a
+   dense multi-column grid without touching any component markup. */
+#model {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.6rem 1rem;
+}
+#model > .ms-auto.py-1.row:not(.text-start) {
+  flex: 1 1 100%; /* submitRow */
+  border-top: 1px solid var(--border-soft);
+  padding-top: 0.8rem;
+  margin-top: 0.2rem;
+}
+#model > .text-start.py-1.row {
+  flex: 1 1 150px;
+  max-width: 220px;
+  margin: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#model .text-start.py-1.row > [id$="Label"] {
+  width: auto;
+  max-width: 100%;
+  flex: none;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+#model .text-start.py-1.row > [id$="Element"] {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+  padding: 0;
+}
+#model label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.66rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+#model label .text-truncate {
+  min-width: 0;
+}
+
+/* Hover/focus explanations next to each parameter label. */
+.info-icon {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-muted);
+  color: var(--ink-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 9px;
+  line-height: 11px;
+  text-align: center;
+  text-transform: none;
+  cursor: help;
+  user-select: none;
+}
+.info-icon:hover,
+.info-icon:focus-visible {
+  border-color: var(--teal);
+  color: var(--teal);
+  outline: none;
+}
+.tooltip {
+  --bs-tooltip-font-size: 0.76rem;
+  --bs-tooltip-bg: var(--surface-raised);
+  --bs-tooltip-color: var(--ink);
+  --bs-tooltip-max-width: 15rem;
+}
+.tooltip .tooltip-inner {
+  border: 1px solid var(--border-soft);
+  text-align: left;
+  padding: 0.5rem 0.65rem;
+}
+#model select,
+#model input[type="text"] {
+  width: 100%;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-soft);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--bs-border-radius-sm);
+}
+#model select:focus,
+#model input[type="text"]:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 1px var(--amber);
+}
+#model input:invalid {
+  border-color: #d9704f;
+}
+
+/*
+ * Simulation parameters panel — responsive.
+ * Mobile (<992px): normal-flow card below the canvas, always fully shown
+ * (the .sim-panel-tab toggle button is hidden and .sim-panel-body ignores
+ * `expanded` entirely).
+ * Desktop (>=992px): a thin tab fixed to the right edge of the canvas card;
+ * the body is an absolutely positioned overlay that slides in on top of the
+ * canvas when the tab is clicked, rather than a full accordion collapse.
+ */
+.sim-panel-tab {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  /* Let the canvas stage break out of the page's 50em text column so it
+     reads as a large, near-full-width surface rather than a boxed-in demo. */
+  .stage-wrap {
+    width: 92vw;
+    max-width: 92vw;
+    margin-left: calc(50% - 46vw);
+    margin-right: calc(50% - 46vw);
+  }
+
+  .sim-panel {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+  }
+  .sim-panel-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 5rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-soft);
+    border-right: none;
+    border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+    color: var(--ink-muted);
+    font-size: 1.1rem;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .sim-panel-tab:hover,
+  .sim-panel-tab:focus-visible {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+  .sim-panel-body {
+    position: absolute;
+    top: 0;
+    right: 2.5rem;
+    width: 22rem;
+    max-width: 42vw;
+    max-height: 100%;
+    overflow-y: auto;
+    transform: translateX(1rem);
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: -1rem 0 2.5rem rgba(0, 0, 0, 0.45);
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+  .sim-panel-body.sim-panel-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #model {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-panel-body {
+    transition: none;
+  }
+}
+
+/* Notes | Source Code */
+.end-links a {
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+.end-links a:hover {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+.end-links .sep {
+  color: var(--border-soft);
+  margin: 0 0.5em;
+}

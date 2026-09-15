@@ -1,0 +1,162 @@
+/*
+ * base.css — shared across every stampatron.com site/subdomain.
+ * Load this AFTER Bootstrap and BEFORE the site's own <site-name>.css.
+ *
+ * This is now the single canonical token set for the whole site, adopted
+ * from model-viewer's original palette. Every site file below should
+ * reference these vars rather than defining its own.
+ */
+
+/* --- Carried over from Bootstrap's own "cover" example template --- */
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+  display: block !important;
+}
+
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+/* Custom default button */
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+/* --- Canonical brand tokens, adopted from model-viewer's original palette.
+   --teal is an addition on top of model-viewer's set: kept as a secondary
+   accent since homepage/hopdrop/webasm-triangle/github-feed all use one
+   (.text-accent-2, .link-accent), using the teal value that was already
+   shared across those three sites. --- */
+:root {
+  --bs-body-font-family: 'Inter', system-ui, sans-serif;
+  --bs-font-monospace: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --bg-deep: rgb(20, 22, 28);
+  --surface-raised: rgb(26, 30, 39);
+  --surface-card: #1f2430;
+  --ink: rgb(231, 232, 238);
+  --ink-muted: rgba(231, 232, 238, 0.6);
+  --border-soft: rgba(73, 80, 87, 0.5);
+  --amber: #e2a54d;   /* primary accent */
+  --amber-dim: rgba(226, 165, 77, 0.16);
+  --teal: #5cc9bd;     /* secondary accent */
+}
+
+.text-accent { color: var(--amber) !important; }
+.text-accent-2 { color: var(--teal) !important; }
+.border-accent-subtle { border-color: rgba(226, 165, 77, .35) !important; }
+.bg-accent-2-subtle { background-color: rgba(92, 201, 189, .15) !important; }
+
+.dot-accent {
+  width: .55rem;
+  height: .55rem;
+  border-radius: 2px;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.icon-badge { width: 40px; height: 40px; }
+
+.hover-card { transition: border-color .15s ease, transform .15s ease; }
+.hover-card:hover { border-color: var(--amber) !important; transform: translateY(-2px); }
+
+.btn {
+  --bs-btn-font-weight: 600;
+}
+
+.btn-accent {
+  --bs-btn-color: #1a1406;
+  --bs-btn-bg: var(--amber);
+  --bs-btn-border-color: var(--amber);
+  --bs-btn-hover-color: #1a1406;
+  --bs-btn-hover-bg: #eab568;
+  --bs-btn-hover-border-color: #eab568;
+  --bs-btn-active-color: #1a1406;
+  --bs-btn-active-bg: #d1943f;
+  --bs-btn-active-border-color: #d1943f;
+  --bs-btn-focus-shadow-rgb: 226, 165, 77;
+}
+
+.hero-eyebrow {
+  font-family: var(--bs-font-monospace);
+  letter-spacing: .05em;
+}
+
+.link-accent {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(92, 201, 189, .4);
+}
+
+.link-accent:hover {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+/* --- Shared base structure (body vignette + brand background) --- */
+body {
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  background: var(--bg-deep);
+  color: var(--ink);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Menu overlays the page on small screens instead of pushing content down */
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    margin-top: .5rem;
+    padding: .5rem 1rem;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border-soft);
+    border-radius: .5rem;
+    box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .5);
+  }
+}
+
+/* Shared navbar border tint (was duplicated identically in model-viewer.css and particles.css) */
+.navbar {
+  border-bottom-color: #495057 !important;
+}
+
+.cover-container {
+  max-width: 50em;
+}
+
+/* Shared neutral button-group divider (was hardcoded #333 in hopdrop.css, var(--line) in particles.css) */
+.btn-group .btn-secondary {
+  border-color: var(--border-soft);
+}
