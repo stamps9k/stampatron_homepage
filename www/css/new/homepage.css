@@ -7,6 +7,17 @@
  */
 
 /*
+ * Logo
+ */
+.logo-ground { position: relative; max-width: 760px; margin: 0 auto; }
+.logo-ground img { position: relative; width:100%; height: auto; display: block; mix-blend-mode: lighten; }
+.logo-ground::before {
+  content: ""; position: absolute; left: -25%; right: -25%; top: 65%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,201,189,.7) 30%, rgba(226,165,77,.7) 70%, transparent);
+  pointer-events: none;
+}
+
+/*
  * Header
  */
 

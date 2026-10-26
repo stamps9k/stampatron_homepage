@@ -6,10 +6,11 @@
 
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="img/favicons/favicon.svg" type="image/svg+xml">
 	<link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 	<link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="img/favicons/favicon.ico">
-	<link rel="manifest" href="img/favicons/site.webmanifest">
+	<link rel="manifest" href="site.webmanifest">
 
 	<title>Stampatron</title>
 
@@ -24,30 +25,35 @@
 	
 	</head>
 	<body>
-	<nav class="navbar navbar-expand-md sticky-top border-bottom bg-body">
-		<div class="container">
-			<a class="navbar-brand fw-bold font-monospace d-flex align-items-center gap-2" href="#top">
-				<span class="dot-accent" aria-hidden="true"></span><span class="text-body">STAMPATRON.COM</span>
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="mainNav">
-				<ul class="navbar-nav ms-auto mb-2 mb-md-0 font-monospace">
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-					<li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+    <nav class="navbar navbar-expand-md sticky-top border-bottom bg-body">
+      <div class="container">
+        <a class="navbar-brand fw-bold font-monospace d-flex align-items-center gap-2" href="#top">
+          <span class="dot-accent" aria-hidden="true"></span><span class="text-body">STAMPATRON.COM</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0 font-monospace">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 		<main id="top">
-			<div class="container py-5">
+			<div class="container pb-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-12">
+            <div class="logo-ground">
+              <img src="img/stampatron-logo.webp" width="1938" height="700" alt="STAMPATRON — a mountain-shaped impossible triangle in amber and teal, holding six small cubes">
+            </div>
+          </div>
+        </div>
 				<div class="row g-5 align-items-center">
-
-					<div class="col-lg-5 order-lg-2">
+					<div class="col-lg-5 order-lg-2 d-none d-lg-block">
 						<div class="card shadow-sm">
 							<div class="card-body">
 								<canvas id="cubeCanvas" width="360" height="260" class="w-100 rounded mb-2 bg-body-tertiary" role="img" aria-label="Rotating wireframe cube, representing the software renderer projects on this site"></canvas>
@@ -134,7 +140,7 @@
 			<div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
 				<div>
 					<div class="fw-bold font-monospace d-flex align-items-center gap-2">
-						<span class="dot-accent" aria-hidden="true"></span>STAMPATRON
+						<span style="display: flex; align-items: center; gap: 10px"><img src="img/stampatron-icon.webp" alt="" width="22" height="22">STAMPATRON</span>
 					</div>
 					<p class="text-body-secondary small mb-0">Fukuoka, Japan — built one frame at a time.</p>
 				</div>
