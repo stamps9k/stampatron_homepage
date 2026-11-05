@@ -1,0 +1,58 @@
+/* Homepage hero: render window with the animated 3D logo (see js/synthwave-panel.js).
+   Colours and fonts come from the shared tokens in base.css. */
+.synthwave-hero {
+  margin-top: clamp(22px, 4.1vw, 44px);
+  margin-bottom: 50px;
+}
+.synthwave-hero .sw-eyebrow { font: 700 12px/1.4 var(--bs-font-monospace); color:var(--amber); letter-spacing:.095em; margin: 0 0 14px; }
+.synthwave-hero .sw-window { border:1px solid var(--amber-subtle); border-radius:5px; background:var(--surface-raised); overflow:hidden; box-shadow:0 10px 36px rgba(0,0,0,.12); }
+.synthwave-hero .sw-titlebar { background:#222833; display:flex;align-items:center;justify-content:space-between; gap:10px; min-height:34px; padding:7px 14px; border-bottom:1px solid var(--amber-subtle); color:var(--teal); font:700 11px/1.4 var(--bs-font-monospace); letter-spacing:.04em; }
+.synthwave-hero .sw-titlebar-end {display:flex;gap:6px;align-items:center;}
+.synthwave-hero .sw-window-dot {width:7px;height:7px;border:1px solid #77808c;display:block;}
+.synthwave-hero .sw-window-dot:first-child {background:var(--amber);border-color:var(--amber);}
+.synthwave-hero .sw-split {display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);}
+.synthwave-hero .sw-intro { display:flex; flex-direction:column; min-width:0; container-type:inline-size; padding:clamp(18px, 2.4vw, 28px); background:linear-gradient(140deg,#1c2029,#171b23); }
+.synthwave-hero .sw-command {color:var(--teal);font:700 12px/1.5 var(--bs-font-monospace);margin-bottom:14px;}
+.synthwave-hero .sw-heading {font:700 clamp(25px,3.2vw,41px)/1.12 var(--bs-font-monospace);letter-spacing:-.045em;max-width:22ch;margin:0 0 20px;overflow-wrap:break-word;}
+.synthwave-hero .sw-heading .sw-cursor {color:var(--amber);font-size:.9em;}
+/* Terminal-style blink: hard on/off, roughly 1s cycle. Steady for reduced-motion users. */
+@keyframes sw-cursor-blink { 50% { opacity:0; } }
+.synthwave-hero .sw-cursor {animation:sw-cursor-blink 1.06s steps(1) infinite;}
+@media (prefers-reduced-motion: reduce) { .synthwave-hero .sw-cursor {animation:none;} }
+.synthwave-hero .sw-copy {font:400 clamp(11px,1vw,13px)/1.8 var(--bs-font-monospace);color:#b8bec9;margin:0 0 18px;}
+.synthwave-hero .sw-footer { margin-top:auto; padding-top:15px; border-top:1px solid rgba(92,201,189,.18); display:flex; justify-content:space-between;align-items:end;gap:12px; flex-wrap:wrap; }
+.synthwave-hero .sw-memory {color:var(--teal);font:700 10px/1.5 var(--bs-font-monospace);white-space:nowrap;}
+.synthwave-hero .sw-statline {font:10px/1.5 var(--bs-font-monospace);color:#b3bac8;text-align:right;margin-left:auto;}
+/* Narrow intro column: stack the footer instead of letting it wrap into a staircase */
+@container (max-width: 460px) {
+  .synthwave-hero .sw-footer {flex-direction:column;align-items:flex-start;gap:6px;}
+  .synthwave-hero .sw-statline {text-align:left;margin-left:0;}
+}
+.synthwave-hero .sw-scene { position:relative; width:100%; aspect-ratio:4/3; align-self:stretch; min-height:0; isolation:isolate; overflow:hidden; border-left:1px solid var(--amber-subtle); background:radial-gradient(ellipse at 50% 48%,#172b35 0%,#151e29 49%,#111720 90%); }
+.synthwave-hero .sw-scene > canvas { position:absolute; inset:0;display:block;width:100%;height:100%;pointer-events:none; }
+.synthwave-hero .sw-logo-layer {filter:drop-shadow(0px 11px 16px rgba(0,0,0,.33));}
+/* Static fallback sized/placed to match the 3D render's front view: logo spans 2/3 of the
+   scene width, centred, base on the same line. margin-top % is relative to width, so it holds at any aspect. */
+.synthwave-hero .sw-logo-fallback {position:absolute; width:68.6%;height:auto;left:15.7%;top:50%;margin-top:-18.04%;opacity:.95;pointer-events:none;}
+.synthwave-hero .sw-scene::after {content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(transparent 0 3px,rgba(0,0,0,.035) 3px 4px); opacity:.45;}
+.synthwave-hero .sw-hud {position:absolute;z-index:5;pointer-events:none;color:#bcd1db;font:700 clamp(8px,.82vw,10px)/1.6 var(--bs-font-monospace);text-shadow:0 1px 2px #000;}
+.synthwave-hero .sw-hud-left {top:15px;left:22px;}
+.synthwave-hero .sw-hud-right {top:15px;right:16px;text-align:right;}
+.synthwave-hero .sw-hud-bottom {bottom:16px;left:18px;right:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--teal);}
+.synthwave-hero .sw-crosshair {position:absolute;z-index:3;width:22px;height:22px;left:calc(50% - 11px);top:calc(52% - 11px);opacity:.28;pointer-events:none;}
+.synthwave-hero .sw-crosshair::before,.synthwave-hero .sw-crosshair::after {content:'';position:absolute;background:var(--teal);}
+.synthwave-hero .sw-crosshair::before {width:1px;height:22px;left:10px;}
+.synthwave-hero .sw-crosshair::after {height:1px;width:22px;top:10px;}
+.synthwave-hero .sw-corner {position:absolute;z-index:5;width:15px;height:15px;pointer-events:none;}
+.synthwave-hero .sw-corner.tl {top:8px;left:8px;border-top:2px solid var(--teal);border-left:2px solid var(--teal);}
+.synthwave-hero .sw-corner.tr {top:8px;right:8px;border-top:2px solid var(--teal);border-right:2px solid var(--teal);}
+.synthwave-hero .sw-corner.bl {bottom:8px;left:8px;border-bottom:2px solid var(--teal);border-left:2px solid var(--teal);}
+.synthwave-hero .sw-corner.br {bottom:8px;right:8px;border-bottom:2px solid var(--teal);border-right:2px solid var(--teal);}
+@media (max-width: 767px) {
+  .synthwave-hero .sw-split {grid-template-columns:1fr;}
+  .synthwave-hero .sw-intro {padding:20px;}
+  .synthwave-hero .sw-scene {border-left:0;border-top:1px solid var(--amber-subtle);aspect-ratio:1/1;max-height:560px;}
+  .synthwave-hero .sw-heading {font-size:clamp(24px,6vw,38px);max-width:none;}
+  .synthwave-hero .sw-footer {margin-top:10px;}
+  .synthwave-hero .sw-hud-left {left:16px;}
+}

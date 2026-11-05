@@ -8,7 +8,7 @@ It's a plain static site. No framework and no build step; the HTML, CSS and JS i
 
 | Page | What it does |
 | --- | --- |
-| `index.html` | Landing page, with a rotating wireframe cube drawn in vanilla JS on a 2D canvas |
+| `index.html` | Landing page. The hero is a "render viewport" showing the 3D Stampatron logo rotating over a scrolling synthwave landscape, drawn with WebGL (falls back to a CPU rasteriser on a 2D canvas, then to a static image) |
 | `projects.html` | Filterable project grid plus a live "recent activity" feed pulled from the GitHub API |
 | `cv.html` | Online CV, with a downloadable PDF at `docs/cv.pdf` |
 | `contact.html` | Contact links, with a decorative particle-network canvas |
@@ -30,8 +30,8 @@ www/
 ├── *.html          site pages
 ├── css/new/        shared stylesheet set (see below)
 ├── css/old/        previous per-site styles, kept for reference
-├── js/             page scripts (cube, particles, GitHub feed)
-├── img/favicons/
+├── js/             page scripts (hero renderer + logo mesh data, particles, GitHub feed)
+├── img/            logo, headshot, hero fallback image, favicons
 ├── docs/cv.pdf
 └── robots.txt
 Dockerfile          nginx image that serves www/
@@ -41,6 +41,12 @@ Dockerfile          nginx image that serves www/
 ### Shared CSS
 
 `css/new/base.css` is the canonical design-token set for every stampatron.com site and subdomain. Each site loads Bootstrap 5.3 (from jsDelivr), then `base.css`, then its own `<site-name>.css`. The per-site files for the other projects (`particles.css`, `hopdrop.css`, `model-viewer.css`, `webasm-triangle.css`) are kept here as the reference copy.
+
+This site's own files are `homepage.css` (shared by all four pages), `github-feed.css` (projects page) and `synthwave-panel.css` (the homepage hero, which uses the `base.css` tokens rather than its own colours).
+
+### Homepage hero
+
+`js/synthwave-panel.js` draws the hero with no libraries. `js/synthwave-logo-data.js` holds the logo's triangle mesh (positions, normals and colours) as `window.StampatronLogoMesh`. The renderer tries WebGL first, then a CPU painter's-algorithm rasteriser on a 2D canvas, then a static image (`img/stampatron-synthwave-fallback.webp`, only downloaded if needed); the HUD's PIPELINE/SHADER labels show which one is active. Animation pauses when the hero is off-screen or the tab is hidden, and stops for visitors with reduced motion enabled.
 
 ## Running locally
 

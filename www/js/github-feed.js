@@ -2,7 +2,7 @@
   var list = document.getElementById('github-feed-list');
   if (!list) return;
 
-  fetch('https://api.github.com/users/stamps9k/repos?sort=pushed&per_page=8')
+  fetch('https://api.github.com/users/stamps9k/repos?sort=pushed&per_page=6')
     .then(function (res) {
       if (!res.ok) throw new Error('GitHub API error: ' + res.status);
       return res.json();

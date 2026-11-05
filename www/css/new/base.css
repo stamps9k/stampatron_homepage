@@ -62,12 +62,13 @@
   --border-soft: rgba(73, 80, 87, 0.5);
   --amber: #e2a54d;   /* primary accent */
   --amber-dim: rgba(226, 165, 77, 0.16);
+  --amber-subtle: rgba(226, 165, 77, 0.35); /* card / panel borders */
   --teal: #5cc9bd;     /* secondary accent */
 }
 
 .text-accent { color: var(--amber) !important; }
 .text-accent-2 { color: var(--teal) !important; }
-.border-accent-subtle { border-color: rgba(226, 165, 77, .35) !important; }
+.border-accent-subtle { border-color: var(--amber-subtle) !important; }
 .bg-accent-2-subtle { background-color: rgba(92, 201, 189, .15) !important; }
 
 .dot-accent {

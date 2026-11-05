@@ -26,11 +26,11 @@
 
 	</head>
 
-	<body class="d-flex min-vh-100">
-		<nav class="navbar navbar-expand-md sticky-top border-bottom bg-body">
+	<body>
+		<nav class="navbar navbar-expand-md border-bottom bg-body">
 			<div class="container">
 				<a class="navbar-brand fw-bold font-monospace d-flex align-items-center gap-2" href="index.html">
-					<span class="dot-accent" aria-hidden="true"></span><span class="text-body">STAMPATRON.COM</span>
+					<img src="img/stampatron-icon.webp" alt="" width="24" height="24"><span class="text-body">STAMPATRON.COM</span>
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 		</nav>
 		<main id="top">
 			<div class="container py-5">
-				<div class="row g-5">
+				<div class="row g-4 g-lg-5">
 					<div class="col-lg-5 order-lg-2 d-none d-lg-block">
 						<div class="card border-accent-subtle h-100">
 							<div class="card-body">
@@ -66,7 +66,7 @@
 							<span class="dot-accent" aria-hidden="true"></span>
 							<span class="hero-eyebrow small text-uppercase text-muted-custom">Portfolio</span>
 						</div>
-						<h1 class="mb-3">Projects</h1>
+						<h1 class="font-monospace fw-bold mb-3">Projects</h1>
 						  <p class="lead text-body-secondary">A collection of projects I've built or am actively developing, spanning graphics programming, systems tooling, and web technologies.</p>
   						<p class="lead text-body-secondary">Each entry links to a live demo where one exists, or to the source on <a class="link-accent" href="https://github.com/stamps9k">Github</a>, where the full codebase for every project is available.</p>
 					</div>
@@ -90,8 +90,8 @@
 
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3" id="grid">
 						<div class="col d-flex project-card" data-tags="graphics games assembly homebrew">
-							<a href="https://homebrew.stampatron.com" class="card border border-warning flex-fill h-100 text-decoration-none text-reset">
-								<div class="card-img-top border-bottom border-light">
+							<a href="https://homebrew.stampatron.com" class="card border-accent-subtle hover-card flex-fill h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-accent-subtle">
 									<svg viewBox="0 0 200 120" width="200" height="120" preserveAspectRatio="xMidYMid meet">
 										<rect width="200" height="120" fill="#1b1e26"/>
 										<g fill="#e2a54d">
@@ -108,12 +108,12 @@
 										</g>
 									</svg>
 								</div>
-								<div class="card-body border-light">
+								<div class="card-body">
 									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
 										<span>68000 Assembly</span><span>2026</span>
 									</div>
 									<h5 class="card-title">Homebrew Console</h5>
-									<p class="card-text text-muted-custom small">A demostration of my homebrew ROM development.</p>
+									<p class="card-text text-muted-custom small">A demonstration of my homebrew ROM development.</p>
 									<span class="badge badge-tag rounded-pill">graphics</span>
 									<span class="badge badge-tag rounded-pill">games</span>
 									<span class="badge badge-tag rounded-pill">assembly</span>
@@ -122,8 +122,8 @@
 						</div>
 						
 						<div class="col d-flex project-card" data-tags="tools files webrtc hopdrop">
-							<a href="https://hopdrop.stampatron.com" class="card border border-warning flex-fill h-100 text-decoration-none text-reset">
-								<div class="card-img-top border-bottom border-light">
+							<a href="https://hopdrop.stampatron.com" class="card border-accent-subtle hover-card flex-fill h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-accent-subtle">
 									<svg viewBox="0 0 200 120" width="200" height="120" preserveAspectRatio="xMidYMid meet">
 										<rect width="200" height="120" fill="#1b1e26"/>
 										<circle cx="55" cy="60" r="6" fill="none" stroke="#e2a54d" stroke-width="1.5"/>
@@ -138,7 +138,7 @@
 										<span>WebRTC</span><span>2026</span>
 									</div>
 									<h5 class="card-title">Hopdrop File Transfer</h5>
-									<p class="card-text text-muted-custom small">A small web application for transfer files between user's computers.</p>
+									<p class="card-text text-muted-custom small">A small web application for transferring files between computers.</p>
 									<span class="badge badge-tag rounded-pill">files</span>
 									<span class="badge badge-tag rounded-pill">webrtc</span>
 									<span class="badge badge-tag rounded-pill">tools</span>
@@ -147,8 +147,8 @@
 						</div>
 
 						<div class="col d-flex project-card" data-tags="graphics rust webgpu particles">
-							<a href="https://webgpu-particles.stampatron.com/" class="card border border-warning flex-fill h-100 text-decoration-none text-reset">
-								<div class="card-img-top border-bottom border-light">
+							<a href="https://webgpu-particles.stampatron.com/" class="card border-accent-subtle hover-card flex-fill h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-accent-subtle">
 									<svg viewBox="0 0 200 120" width="200" height="120" preserveAspectRatio="xMidYMid meet">
 										<rect width="200" height="120" fill="#1b1e26"/>
 										<circle cx="40" cy="80" r="2.4" fill="#e2a54d"/>
@@ -177,8 +177,8 @@
 						</div>
 
 						<div class="col d-flex project-card" data-tags="graphics rust webasm webgl model 3D viewer">
-							<a href="https://model-viewer.stampatron.com" class="card border border-warning flex-fill h-100 text-decoration-none text-reset">
-								<div class="card-img-top border-bottom border-light">
+							<a href="https://model-viewer.stampatron.com" class="card border-accent-subtle hover-card flex-fill h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-accent-subtle">
 									<svg viewBox="0 0 200 120" width="200" height="120" preserveAspectRatio="xMidYMid meet">
 										<rect width="200" height="120" fill="#1b1e26"/>
 										<g fill="none" stroke="#e2a54d" stroke-width="1.2">
@@ -192,7 +192,7 @@
 									</svg>
 								</div>
 								<div class="card-body">
-									<div class=" card-meta d-flex justify-content-between small text-muted-custom mb-1">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
 										<span>Rust / WASM</span><span>2025</span>
 									</div>
 									<h5 class="card-title">3D Model Viewer</h5>
@@ -206,8 +206,8 @@
 						</div>
 
 						<div class="col d-flex project-card" data-tags="graphics rust webasm webgl triangle">
-							<a href="https://webasm-triangle.stampatron.com" class="card border border-warning flex-fill h-100 text-decoration-none text-reset">
-								<div class="card-img-top border-bottom border-light">
+							<a href="https://webasm-triangle.stampatron.com" class="card border-accent-subtle hover-card flex-fill h-100 text-decoration-none text-reset">
+								<div class="card-img-top border-bottom border-accent-subtle">
 									<svg viewBox="0 0 200 120" width="200" height="120" preserveAspectRatio="xMidYMid meet">
 										<rect width="200" height="120" fill="#1b1e26"/>
 										<polygon points="100,25 150,95 50,95" fill="none" stroke="#e2a54d" stroke-width="1.4"/>
@@ -218,11 +218,11 @@
 									</svg>
 								</div>
 								<div class="card-body">
-									<div class="d-flex justify-content-between small text-muted-custom mb-1">
+									<div class="card-meta d-flex justify-content-between small text-muted-custom mb-1">
 										<span>Rust / WASM</span><span>2024</span>
 									</div>
 									<h5 class="card-title">Webasm Triangle</h5>
-									<p class="card-text text-muted-custom small">A my first triangle demo project. Learning the basics about webasm.</p>
+									<p class="card-text text-muted-custom small">My first triangle demo project, learning the basics of WebAssembly.</p>
 									<span class="badge badge-tag rounded-pill">graphics</span>
 									<span class="badge badge-tag rounded-pill">rust</span>
 									<span class="badge badge-tag rounded-pill">webasm</span>
@@ -241,7 +241,7 @@
 			<div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
 				<div>
 					<div class="fw-bold font-monospace d-flex align-items-center gap-2">
-            <span style="display: flex; align-items: center; gap: 10px"><img src="img/stampatron-icon.webp" alt="" width="22" height="22">STAMPATRON</span>
+            <img src="img/stampatron-icon.webp" alt="" width="22" height="22"><span>STAMPATRON</span>
 					</div>
 					<p class="text-body-secondary small mb-0">Fukuoka, Japan — built one frame at a time.</p>
 				</div>

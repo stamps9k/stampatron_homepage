@@ -1,23 +1,4 @@
 /*
- * Globals
- */
-
-/*
- * Base structure
- */
-
-/*
- * Logo
- */
-.logo-ground { position: relative; max-width: 760px; margin: 0 auto; }
-.logo-ground img { position: relative; width:100%; height: auto; display: block; mix-blend-mode: lighten; }
-.logo-ground::before {
-  content: ""; position: absolute; left: -25%; right: -25%; top: 65%; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(92,201,189,.7) 30%, rgba(226,165,77,.7) 70%, transparent);
-  pointer-events: none;
-}
-
-/*
  * Header
  */
 
@@ -27,34 +8,6 @@
 
 .navbar-toggler {
   padding: .25rem .5rem;
-}
-
-.nav-masthead .nav-link {
-  display: inline-block;
-  padding: .5rem 0;
-  color: rgba(255, 255, 255, .5) !important;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.nav-masthead .active {
-  color: #fff !important;
-  border-bottom-color: #fff;
-}
-
-/* Horizontal menu, always visible from md up: restore the original side-by-side layout */
-@media (min-width: 768px) {
-  .nav-masthead .nav-link {
-    padding: .25rem 0;
-  }
-
-  .nav-masthead .nav-link + .nav-link {
-    margin-left: 1rem;
-  }
 }
 
 /* Additional styling for my project cards */
@@ -75,7 +28,7 @@
   height: 100%;
 }
 .card-meta {
-	font-family: "IBM Plex Mono", monospace;
+	font-family: var(--bs-font-monospace);
 	font-size: 0.68rem;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
@@ -99,13 +52,11 @@
 }
 
 /* Styles to make main->footer flow naturally */
-html, body {
-  min-height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 main {

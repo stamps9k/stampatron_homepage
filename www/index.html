@@ -10,13 +10,14 @@
 	<link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 	<link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 	<link rel="icon" href="img/favicons/favicon.ico">
-	<link rel="manifest" href="site.webmanifest">
+	<!--<link rel="manifest" href="site.webmanifest">-->
 
 	<title>Stampatron</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 	<link rel="stylesheet" href="css/new/base.css" />
 	<link rel="stylesheet" href="css/new/homepage.css" />
+  <link rel="stylesheet" href="css/new/synthwave-panel.css" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
@@ -25,10 +26,10 @@
 	
 	</head>
 	<body>
-    <nav class="navbar navbar-expand-md sticky-top border-bottom bg-body">
+    <nav class="navbar navbar-expand-md border-bottom bg-body">
       <div class="container">
         <a class="navbar-brand fw-bold font-monospace d-flex align-items-center gap-2" href="#top">
-          <span class="dot-accent" aria-hidden="true"></span><span class="text-body">STAMPATRON.COM</span>
+          <img src="img/stampatron-icon.webp" alt="" width="24" height="24"><span class="text-body">STAMPATRON.COM</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -44,44 +45,46 @@
       </div>
     </nav>
 		<main id="top">
-			<div class="container pb-5">
-        <div class="row g-5 align-items-center">
-          <div class="col-12">
-            <div class="logo-ground">
-              <img src="img/stampatron-logo.webp" width="1938" height="700" alt="STAMPATRON — a mountain-shaped impossible triangle in amber and teal, holding six small cubes">
+      <section class="synthwave-hero" data-synthwave-hero aria-label="Stampatron introduction and animated 3D logo">
+        <div class="container">
+          <p class="sw-eyebrow">// GRAPHICS · SYSTEMS · RETRO HARDWARE</p>
+          <div class="sw-window">
+            <div class="sw-titlebar">
+              <span>◎ RENDER VIEWPORT / SCENE_001</span>
+              <span class="sw-titlebar-end" aria-hidden="true"><i class="sw-window-dot"></i><i class="sw-window-dot"></i><i class="sw-window-dot"></i></span>
+            </div>
+            <div class="sw-split">
+              <div class="sw-intro">
+                <div class="sw-command">&gt; RUN INTRODUCTION.EXE</div>
+                <h1 class="sw-heading">I write the code that ends up on your screen, pixel by pixel.<span class="sw-cursor">▌</span></h1>
+                <p class="sw-copy">Graphics · Systems · Retro hardware · Rust &amp; WASM · WebGPU/WGSL · 68000 assembly</p>
+                <div class="sw-footer">
+                  <span class="sw-memory">MEMORY [||||||||||||] 100%</span>
+                  <span class="sw-statline">MODEL: SIX CUBES<br>PIPELINE: GEOMETRY / RENDER</span>
+                </div>
+              </div>
+              <div class="sw-scene" role="img" aria-label="Low-poly mountain and six cubes rotating once every thirty seconds over a scrolling wireframe synthwave landscape, with rendering status HUD">
+                <canvas data-sw-ground aria-hidden="true"></canvas>
+                <canvas data-sw-logo class="sw-logo-layer" aria-hidden="true"></canvas>
+                <img data-sw-fallback class="sw-logo-fallback" data-src="img/stampatron-synthwave-fallback.webp" alt="" hidden>
+                <div class="sw-crosshair"></div>
+                <i class="sw-corner tl"></i><i class="sw-corner tr"></i><i class="sw-corner bl"></i><i class="sw-corner br"></i>
+                <div class="sw-hud sw-hud-left" aria-hidden="true">
+                  FPS: <span data-sw-fps>—</span><br>
+                  X: +0.000<br>Y: +0.600<br>Z: +0.000<br>
+                  YAW: <span data-sw-yaw>0.0°</span>
+                </div>
+                <div class="sw-hud sw-hud-right" aria-hidden="true">
+                  VERTICES: <span data-sw-verts>—</span><br>
+                  TRIANGLES: <span data-sw-tris>—</span><br>
+                  CUBES: 6
+                </div>
+                <div class="sw-hud sw-hud-bottom" aria-hidden="true"><span data-sw-pipeline>PIPELINE / WEBGL</span><span data-sw-shader>SHADER: LOADED ▰</span></div>
+              </div>
             </div>
           </div>
         </div>
-				<div class="row g-5 align-items-center">
-					<div class="col-lg-5 order-lg-2 d-none d-lg-block">
-						<div class="card shadow-sm">
-							<div class="card-body">
-								<canvas id="cubeCanvas" width="360" height="260" class="w-100 rounded mb-2 bg-body-tertiary" role="img" aria-label="Rotating wireframe cube, representing the software renderer projects on this site"></canvas>
-								<div class="d-flex justify-content-between small font-monospace text-body-secondary mb-2">
-									<span>frame <span id="frameCount" class="text-accent-2 fw-semibold">0001</span></span>
-									<span>rot.y <span id="rotY" class="text-accent-2 fw-semibold">0.00</span> rad</span>
-									<span>60 fps</span>
-								</div>
-								<p class="small text-body-secondary border-top pt-2 mb-0">This cube is ~120 lines of vanilla JS on a 2D &lt;canvas&gt; — no libraries, same as the rest of this page.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-7 order-lg-1">
-						<p class="text-body-secondary font-monospace text-uppercase small mb-2" style="letter-spacing:.14em;">Programmer — graphics · systems · retro hardware</p>
-						<h1 class="display-5 fw-bold font-monospace mb-3">I write the code that ends up on your <span class="text-accent">screen, pixel by pixel</span>.</h1>
-						<p class="lead text-body-secondary" style="max-width:46ch;">Hobbyist renderer and game-engine builder — from software rasterizers in Rust/WASM to 68000 assembly on real Sega Mega Drive hardware. This is where those projects live.</p>
-						<div class="d-flex flex-wrap gap-2 mb-4">
-							<a class="btn btn-accent fw-bold font-monospace" href="projects.html">View projects →</a>
-							<a class="btn btn-outline-light font-monospace" target="_blank" href="https://github.com/stamps9k?tab=repositories">View the code</a>
-						</div>
-						<div class="d-flex flex-wrap align-items-baseline gap-2 border-top pt-3 small font-monospace text-body-secondary">
-							<span class="text-uppercase" style="letter-spacing:.1em;">Built with</span>
-							<span>Rust · WASM · WebGPU/WGSL · 68000 assembly — same tools as the projects themselves</span>
-						</div>
-					</div>
-				</div>
-			</div>
+      </section>
 
 			<section class="border-top">
 				<div class="container py-5">
@@ -140,7 +143,7 @@
 			<div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
 				<div>
 					<div class="fw-bold font-monospace d-flex align-items-center gap-2">
-						<span style="display: flex; align-items: center; gap: 10px"><img src="img/stampatron-icon.webp" alt="" width="22" height="22">STAMPATRON</span>
+						<img src="img/stampatron-icon.webp" alt="" width="22" height="22"><span>STAMPATRON</span>
 					</div>
 					<p class="text-body-secondary small mb-0">Fukuoka, Japan — built one frame at a time.</p>
 				</div>
@@ -157,6 +160,7 @@
 				</div>
 			</div>
 		</footer>
-		<script src="js/cube-spin.js"></script>
+    <script src="js/synthwave-logo-data.js"></script>
+    <script src="js/synthwave-panel.js"></script>
 	</body>
 </html>
