@@ -29,7 +29,6 @@ Each project lives on its own subdomain and in its own repo:
 www/
 ├── *.html          site pages
 ├── css/new/        shared stylesheet set (see below)
-├── css/old/        previous per-site styles, kept for reference
 ├── js/             page scripts (hero renderer + logo mesh data, particles, GitHub feed)
 ├── img/            logo, headshot, hero fallback image, favicons
 ├── docs/cv.pdf
